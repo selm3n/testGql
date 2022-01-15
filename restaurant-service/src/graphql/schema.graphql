@@ -1,0 +1,36 @@
+type restaurant {
+  restaurantUuid: ID
+  name: String
+  country: country
+  image_uuid: ID
+  images: [String]
+
+}
+type country {
+  code: String
+  locales: [String]
+
+}
+type pagination{
+    perPage: Int
+    currentPage: Int
+    from: Int
+    to: Int
+    total: Int
+
+  }
+type restaurantt {
+  restaurants: [restaurant]
+  pagination: pagination
+
+}
+
+# type restaurant_has_image {
+#   restaurant_uuid: ID!
+#   image_uuid: ID!
+# }
+
+type Query {
+  restaurants: [restaurant]
+  restaurant(name: String, haveImageOnly: Boolean, perPage: Int, currentPage: Int ): restaurantt
+}
