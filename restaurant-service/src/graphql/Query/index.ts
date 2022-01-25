@@ -1,9 +1,7 @@
 const restaurant = require('./restaurant')
-// const restaurants = require('./restaurants')
 
-const query = {
+const Query = {
     restaurant,
-    // restaurants,
 }
 
-module.exports = query
+export default Query

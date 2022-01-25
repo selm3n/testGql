@@ -25,10 +25,6 @@ type restaurantt {
 
 }
 
-# type restaurant_has_image {
-#   restaurant_uuid: ID!
-#   image_uuid: ID!
-# }
 
 type Query {
   restaurants: [restaurant]

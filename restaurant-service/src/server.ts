@@ -2,8 +2,8 @@ import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
 import config from 'config';
 
-const { importSchema } = require('graphql-import')
-const { resolvers } = require('./graphql')
+import { importSchema } from'graphql-import'
+import { resolvers } from'./graphql'
 const typeDefs = importSchema('./src/graphql/schema.graphql')
 
 const main = async () => {

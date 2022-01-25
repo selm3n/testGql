@@ -5,7 +5,13 @@ const { attachPaginate } = require('knex-paginate');
 const { default: axios } = require('axios');
 attachPaginate();
 
-const Restaurant = async (_, { name, haveImageOnly, perPage, currentPage }) => {
+interface a {
+    name: String;
+    haveImageOnly: Boolean
+
+}
+
+const Restaurant = async (_:any, { name , haveImageOnly, perPage, currentPage }) => {
   if (name !== undefined && haveImageOnly == true) {
     return await knex('restaurant')
       .join('restaurant_has_image', 'restaurant.restaurant_uuid', 'restaurant_has_image.restaurant_uuid')
