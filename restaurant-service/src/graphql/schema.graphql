@@ -25,8 +25,6 @@ type restaurantt {
 
 }
 
-
 type Query {
-  restaurants: [restaurant]
   restaurant(name: String, haveImageOnly: Boolean, perPage: Int, currentPage: Int ): restaurantt
 }

@@ -1,12 +1,9 @@
 const config = require('../../../knexfile')
 const knex = require('knex')(config)
+import { getOrdredResponse } from './restaurantsHelper';
+import { ICountry } from '../../interfaces/restaurant'
 
-const { attachPaginate } = require('knex-paginate');
-
-const { getOrdredResponse } = require('./restaurantsHelper')
-attachPaginate();
-
-const getRestaurantsWithIamges = async(name, perPage, currentPage) => {
+export const getRestaurantsWithImagesOnly = async (name: string, perPage: number, currentPage: number) => {
 
     return await knex('restaurant')
         .join('restaurant_has_image', 'restaurant.restaurant_uuid', 'restaurant_has_image.restaurant_uuid')
@@ -20,12 +17,8 @@ const getRestaurantsWithIamges = async(name, perPage, currentPage) => {
         .orderBy("restaurant.restaurant_uuid")
 
         .paginate({ perPage: perPage ? perPage : 50, currentPage: currentPage ? currentPage : 1 })
-        .then(async function (resp) {
-            let countries = await knex('country')
-
-            return res = await getOrdredResponse(countries, resp);
-
+        .then(async function (resp: any) {
+            let countries: ICountry[] = await knex('country')
+            return await getOrdredResponse(countries, resp);
         })
 }
-
-export default  getRestaurantsWithIamges

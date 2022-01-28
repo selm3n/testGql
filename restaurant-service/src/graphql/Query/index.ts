@@ -1,5 +1,4 @@
-const restaurant = require('./restaurant')
-
+import { restaurant } from "./restaurant"
 const Query = {
     restaurant,
 }

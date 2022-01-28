@@ -33,6 +33,6 @@
     "exercise/src/**/*",
     "./src/**/*.ts",
     "./src/**/*.tsx", "config/*",
-    "exercise/src/**/*.json"
-, "src/graphql/Query/restaurants.js", "src/graphql/Query/restaurant.js", "src/repositories/restaurants/getRestaurantsWithImages.js"  ]
+    "exercise/src/**/*.json",
+]
 }

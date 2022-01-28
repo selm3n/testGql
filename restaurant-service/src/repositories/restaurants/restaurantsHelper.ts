@@ -1,10 +1,13 @@
 
 const { getImages } = require('../../repositories/images/image');
+import { ICountry, IOrdredCountries, IImage, IResp } from '../../interfaces/restaurant'
 
-export const getOrdredResponse = async (countries, resp) => {
-    let ordredCountries = [];
 
-    countries.forEach(e => {
+export const getOrdredResponse = async (countries: ICountry[], resp: any) => {
+    let ordredCountries: IOrdredCountries = { UK: { code: '', locales: [] }, FR: { code: '', locales: [] }, ES: { code: '', locales: [] } };
+
+
+    countries.forEach((e: ICountry) => {
         if (e.country_code == 'UK') {
             ordredCountries.UK = {
                 code: e.country_code,
@@ -27,16 +30,16 @@ export const getOrdredResponse = async (countries, resp) => {
 
     const images = await getImages();
 
-    resp.data.forEach(e => {
+    resp.data.forEach((e: IResp) => {
 
         if (['ES', 'FR', 'UK'].includes(e.country_code)) {
             e.country = ordredCountries[e.country_code];
         }
 
         if (e.images[0] !== null) {
-            let imgs = []
-            e.images.forEach(eim => {
-                images.images.forEach(im => {
+            let imgs: string[] = []
+            e.images.forEach((eim: string) => {
+                images.images.forEach((im: IImage) => {
                     if (im.imageUuid === eim) {
                         imgs.push(im.url)
                     }
