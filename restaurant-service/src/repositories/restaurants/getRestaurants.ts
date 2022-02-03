@@ -1,7 +1,7 @@
 const config = require('../../../knexfile')
 const knex = require('knex')(config)
 import { getOrdredResponse } from './restaurantsHelper';
-import { ICountry } from '../../interfaces/restaurant';
+import { ICountry } from '../../interfaces/country';
 
 export const getRestaurants = async (name: string, perPage: number, currentPage: number) => {
 

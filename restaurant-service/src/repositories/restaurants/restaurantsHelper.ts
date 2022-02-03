@@ -1,6 +1,8 @@
 
 const { getImages } = require('../../repositories/images/image');
-import { ICountry, IOrdredCountries, IImage, IResp } from '../../interfaces/restaurant'
+import { IImage } from '../../interfaces/image';
+import { ICountry, IOrdredCountries } from '../../interfaces/country';
+import { IResp } from '../../interfaces/response';
 
 
 export const getOrdredResponse = async (countries: ICountry[], resp: any) => {
